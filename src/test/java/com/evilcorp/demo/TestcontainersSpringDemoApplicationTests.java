@@ -1,11 +1,11 @@
 package com.evilcorp.demo;
 
 import com.evilcorp.demo.entity.User;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import javax.annotation.PostConstruct;
+import org.springframework.test.context.ContextConfiguration;
 
 import java.util.Optional;
 
@@ -15,12 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
+@ContextConfiguration(initializers = {TestcontainersInitializer.class})
 class TestcontainersSpringDemoApplicationTests {
 	@Autowired
 	UserRepository userRepository;
 	private User createdUser;
 
-	@PostConstruct
+	@BeforeEach
 	void setUp() {
 		createdUser = new User();
 		createdUser.setName("Fry");

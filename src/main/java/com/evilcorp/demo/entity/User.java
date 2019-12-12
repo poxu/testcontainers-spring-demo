@@ -13,7 +13,7 @@ public class User {
     @Id
     @Column(name = "user_id")
     private UUID userId = UUID.randomUUID();
-    @Column(name = "name")
+    @Column(name = "user_name")
     private String name;
 
     public UUID getUserId() {
