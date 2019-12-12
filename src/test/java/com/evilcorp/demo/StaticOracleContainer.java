@@ -12,9 +12,7 @@ public class StaticOracleContainer {
         private static final OracleContainer ORACLE_CONTAINER = makeContainer();
 
         private static OracleContainer makeContainer() {
-            //Hardcoded, devops put this image to artifactory
-            final String dockerImageName = "my/oracle-for-habr";
-            final OracleContainer container = new OracleContainer(dockerImageName)
+            final OracleContainer container = new OracleContainer()
                     // Username which testcontainers is going to use
                     // to find out if container is up and running
                     .withUsername("SYSTEM")
